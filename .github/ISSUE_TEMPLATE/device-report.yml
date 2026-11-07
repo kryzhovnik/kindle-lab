@@ -1,0 +1,29 @@
+name: Device report
+description: What a test book did on your Kindle
+title: "[report] <book> on <Kindle model>"
+body:
+  - type: dropdown
+    id: book
+    attributes:
+      label: Test book
+      options: [menclose + control, mathml-elements, footnotes, full-page-cover, title-from-filename]
+    validations: { required: true }
+  - type: input
+    id: device
+    attributes: { label: Kindle model, placeholder: "Kindle Scribe (2024), Paperwhite 12th gen, Kindle app on iOS…" }
+    validations: { required: true }
+  - type: input
+    id: firmware
+    attributes: { label: Firmware, description: "Settings → Device Options → Device Info", placeholder: "5.18.x" }
+    validations: { required: true }
+  - type: input
+    id: region
+    attributes: { label: Amazon region, placeholder: "amazon.com, amazon.de…" }
+  - type: input
+    id: method
+    attributes: { label: How you sent it, placeholder: "Send to Kindle email, Send to Kindle app, Calibre…" }
+    validations: { required: true }
+  - type: textarea
+    id: result
+    attributes: { label: What you saw, description: "Compare with the book's first page. Photos welcome." }
+    validations: { required: true }
