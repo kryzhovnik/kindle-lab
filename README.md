@@ -4,7 +4,10 @@ Small EPUBs that each test one thing a Kindle does with a personal document sent
 Amazon converts every EPUB you send (to KFX), and the device shows the conversion, not your file, so a
 desktop reader cannot tell you what the Kindle will do. Only the device can.
 
-Results and the full write-up: **https://dropkind.app/kindle-lab**
+Results, as a table of features by devices: **https://dropkind.app/kindle-lab**
+
+The same results as data: [`kindle-lab.json`](kindle-lab.json) (a copy of
+https://dropkind.app/kindle-lab.json, which is always current).
 
 | Book | What it checks |
 |---|---|
@@ -27,5 +30,5 @@ what you saw. A photo helps. A failure is as useful as a pass; reports are added
 
 ## Licence
 
-The books are CC0: use them for anything. They are built by [DropKind](https://dropkind.app), which
+The books and the results are CC0: use them for anything. They are built by [DropKind](https://dropkind.app), which
 sends articles, PDFs and papers to Kindle and applies the workarounds found here.
