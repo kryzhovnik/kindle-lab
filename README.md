@@ -8,7 +8,10 @@ Results and the full write-up: **https://dropkind.app/kindle-lab**
 
 | Book | What it checks |
 |---|---|
-| `books/kindle-lab-menclose.epub` + `books/kindle-lab-menclose-control.epub` | Whether one MathML `menclose` turns the whole book into a fixed page (no font size). Send both the same way and compare. |
+| `books/kindle-lab-menclose-longdiv.epub` | Whether one MathML `menclose notation="longdiv"` turns the whole book into a fixed page (no font size). On a Paperwhite 2024, firmware 5.20.1, it does. |
+| `books/kindle-lab-menclose-default.epub` | The same with a bare `menclose`: MathML makes long division the default, so it locks the book too. |
+| `books/kindle-lab-menclose-box.epub` | `menclose notation="box"`: the frame is drawn and the book reflows. |
+| `books/kindle-lab-menclose-control.epub` | The control: the same book with `mrow`. Send it the same way as the others and compare the font size. |
 | `books/kindle-lab-mathml-elements.epub` | Which documented MathML elements render, one numbered case each. |
 | `books/kindle-lab-footnotes.epub` | How much of a two-paragraph note the pop-up shows, for six markups. |
 | `books/kindle-lab-full-page-cover.epub` | A full-page picture as an SVG box versus an `img`. |
