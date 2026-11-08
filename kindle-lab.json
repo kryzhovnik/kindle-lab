@@ -1,290 +1,371 @@
 {
-  "updated_at": "2026-11-07",
-  "license": "CC0-1.0",
-  "repo_url": "https://github.com/kryzhovnik/kindle-lab",
-  "devices": [
-    {
-      "id": "paperwhite-2024",
-      "name": "Paperwhite",
-      "model": "Kindle Paperwhite (12th generation, 2024)"
-    },
-    {
-      "id": "kindle-2024",
-      "name": "Kindle",
-      "model": "Kindle (11th generation or later)"
-    },
-    {
-      "id": "scribe",
-      "name": "Scribe",
-      "model": "Kindle Scribe"
-    },
-    {
-      "id": "colorsoft",
-      "name": "Colorsoft",
-      "model": "Kindle Colorsoft"
-    },
-    {
-      "id": "ios-app",
-      "name": "iOS app",
-      "model": "Kindle app on iPhone or iPad"
-    },
-    {
-      "id": "android-app",
-      "name": "Android app",
-      "model": "Kindle app on Android"
-    }
-  ],
-  "features": [
-    {
-      "id": "mathml-elements",
-      "group": "MathML",
-      "name": "MathML elements",
-      "summary": "29 of the 31 MathML elements Amazon documents render and reflow, with the font size working as in any book: inline and display math, fractions, roots, scripts, under and over, prescripts, tables with labelled rows, fenced, padded, phantom, text and spacing, style attributes, semantics. menclose has rows of its own.",
-      "workaround": null,
-      "test_books": [
+    "updated_at": "2026-11-08",
+    "license": "CC0-1.0",
+    "repo_url": "https://github.com/kryzhovnik/kindle-lab",
+    "devices": [
         {
-          "slug": "mathml-elements",
-          "filename": "kindle-lab-mathml-elements.epub",
-          "url": "https://dropkind.app/kindle-lab/books/mathml-elements"
-        }
-      ],
-      "results": {
-        "paperwhite-2024": {
-          "verdict": "works",
-          "label": "29 of 31",
-          "observations": [
-            {
-              "firmware": null,
-              "date": "2026-09-09",
-              "method": "Send to Kindle email"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "menclose-longdiv",
-      "group": "MathML",
-      "name": "menclose notation=\"longdiv\"",
-      "summary": "One menclose drawn as long division anywhere in the book turns the whole book into a fixed page: it opens, but the font size cannot be changed and the page reads like a PDF. Amazon lists menclose as supported and mlongdiv as unsupported.",
-      "workaround": "Give every menclose an explicit notation other than longdiv (box works), or replace it with mrow.",
-      "test_books": [
-        {
-          "slug": "menclose-longdiv",
-          "filename": "kindle-lab-menclose-longdiv.epub",
-          "url": "https://dropkind.app/kindle-lab/books/menclose-longdiv"
+            "id": "paperwhite-2024",
+            "name": "Paperwhite",
+            "model": "Kindle Paperwhite (12th generation, 2024)"
         },
         {
-          "slug": "menclose-control",
-          "filename": "kindle-lab-menclose-control.epub",
-          "url": "https://dropkind.app/kindle-lab/books/menclose-control"
-        }
-      ],
-      "results": {
-        "paperwhite-2024": {
-          "verdict": "breaks",
-          "label": "Locks the book",
-          "observations": [
-            {
-              "firmware": "5.20.1.0.2",
-              "date": "2026-11-07",
-              "method": "Send to Kindle email, with the mrow control book, which reflowed"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "menclose-default",
-      "group": "MathML",
-      "name": "menclose with no notation",
-      "summary": "A bare menclose does the same as longdiv, because MathML makes long division the default. This is how most converters write it.",
-      "workaround": "Add notation=\"box\" (or another notation), or replace the menclose with mrow.",
-      "test_books": [
-        {
-          "slug": "menclose-default",
-          "filename": "kindle-lab-menclose-default.epub",
-          "url": "https://dropkind.app/kindle-lab/books/menclose-default"
+            "id": "kindle-2024",
+            "name": "Kindle",
+            "model": "Kindle (11th generation or later)"
         },
         {
-          "slug": "menclose-control",
-          "filename": "kindle-lab-menclose-control.epub",
-          "url": "https://dropkind.app/kindle-lab/books/menclose-control"
-        }
-      ],
-      "results": {
-        "paperwhite-2024": {
-          "verdict": "breaks",
-          "label": "Locks the book",
-          "observations": [
-            {
-              "firmware": null,
-              "date": "2026-09-09",
-              "method": "Send to Kindle email; found by sending one book per element"
-            },
-            {
-              "firmware": "5.20.1.0.2",
-              "date": "2026-11-07",
-              "method": "Send to Kindle email, with the mrow control book, which reflowed"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "menclose-box",
-      "group": "MathML",
-      "name": "menclose notation=\"box\"",
-      "summary": "The frame is drawn around the content and the book reflows: the font size changes as usual.",
-      "workaround": null,
-      "test_books": [
-        {
-          "slug": "menclose-box",
-          "filename": "kindle-lab-menclose-box.epub",
-          "url": "https://dropkind.app/kindle-lab/books/menclose-box"
+            "id": "scribe",
+            "name": "Scribe",
+            "model": "Kindle Scribe"
         },
         {
-          "slug": "menclose-control",
-          "filename": "kindle-lab-menclose-control.epub",
-          "url": "https://dropkind.app/kindle-lab/books/menclose-control"
-        }
-      ],
-      "results": {
-        "paperwhite-2024": {
-          "verdict": "works",
-          "label": "Frame drawn",
-          "observations": [
-            {
-              "firmware": "5.20.1.0.2",
-              "date": "2026-11-07",
-              "method": "Send to Kindle email"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "footnotes",
-      "group": "Layout",
-      "name": "Pop-up footnotes",
-      "summary": "A note reference opens the note in a panel at the bottom of the screen, with aside epub:type=\"footnote\" or with plain links. The panel shows only the first block of the note: a second paragraph, div or block span is lost.",
-      "workaround": "Write a note as one p, with br between its paragraphs. The panel then shows all of it.",
-      "test_books": [
+            "id": "colorsoft",
+            "name": "Colorsoft",
+            "model": "Kindle Colorsoft"
+        },
         {
-          "slug": "footnotes",
-          "filename": "kindle-lab-footnotes.epub",
-          "url": "https://dropkind.app/kindle-lab/books/footnotes"
-        }
-      ],
-      "results": {
-        "paperwhite-2024": {
-          "verdict": "partly",
-          "label": "First block only",
-          "observations": [
-            {
-              "firmware": null,
-              "date": "2026-11-02",
-              "method": "Send to Kindle email"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "full-page-image",
-      "group": "Layout",
-      "name": "Full-page images",
-      "summary": "The book's CSS never scales an image above its own size, so a 600 px cover fills only part of the screen. A page whose body is one SVG with a viewBox and preserveAspectRatio=\"xMidYMid meet\" around an image scales the picture to the screen and keeps its shape.",
-      "workaround": "Wrap a full-page picture in an SVG with a viewBox of the image's size.",
-      "test_books": [
+            "id": "ios-app",
+            "name": "iOS app",
+            "model": "Kindle app on iPhone or iPad"
+        },
         {
-          "slug": "full-page-cover",
-          "filename": "kindle-lab-full-page-cover.epub",
-          "url": "https://dropkind.app/kindle-lab/books/full-page-cover"
+            "id": "android-app",
+            "name": "Android app",
+            "model": "Kindle app on Android"
         }
-      ],
-      "results": {
-        "paperwhite-2024": {
-          "verdict": "partly",
-          "label": "SVG only",
-          "observations": [
-            {
-              "firmware": null,
-              "date": "2026-11-03",
-              "method": "Send to Kindle email"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "title",
-      "group": "Library and delivery",
-      "name": "Title in the library",
-      "summary": "The library and the book's header show the attachment's file name, not the title written inside the EPUB (dc:title). A non-ASCII file name works: a Cyrillic name shows as written.",
-      "workaround": "Name the file the way you want the title to read, spaces and all.",
-      "test_books": [
+    ],
+    "features": [
         {
-          "slug": "title-from-filename",
-          "filename": "kindle-lab-title-from-filename.epub",
-          "url": "https://dropkind.app/kindle-lab/books/title-from-filename"
-        }
-      ],
-      "results": {
-        "paperwhite-2024": {
-          "verdict": "note",
-          "label": "File name",
-          "observations": [
-            {
-              "firmware": null,
-              "date": "2026-11-03",
-              "method": "Send to Kindle email (attachment)"
+            "id": "mathml-elements",
+            "group": "MathML",
+            "name": "MathML elements",
+            "summary": "29 of the 31 MathML elements Amazon documents render and reflow, with the font size working as in any book: inline and display math, fractions, roots, scripts, under and over, prescripts, tables with labelled rows, fenced, padded, phantom, text and spacing, style attributes, semantics. menclose has rows of its own.",
+            "workaround": null,
+            "test_books": [
+                {
+                    "slug": "mathml-elements",
+                    "filename": "kindle-lab-mathml-elements.epub",
+                    "url": "https://dropkind.app/kindle-lab/books/mathml-elements"
+                }
+            ],
+            "results": {
+                "paperwhite-2024": {
+                    "verdict": "works",
+                    "label": "29 of 31",
+                    "observations": [
+                        {
+                            "firmware": null,
+                            "date": "2026-09-09",
+                            "method": "Send to Kindle email"
+                        }
+                    ]
+                }
             }
-          ]
-        }
-      }
-    },
-    {
-      "id": "kfx",
-      "group": "Library and delivery",
-      "name": "Format on the device",
-      "summary": "An EPUB sent through Send to Kindle is stored on the device as KFX, the Enhanced Typesetting format. That is the format Amazon documents MathML support for, so the rows above are about KFX, not the older AZW3.",
-      "workaround": null,
-      "test_books": [],
-      "results": {
-        "paperwhite-2024": {
-          "verdict": "note",
-          "label": "KFX",
-          "observations": [
-            {
-              "firmware": null,
-              "date": "2026-09-10",
-              "method": "USB file listing of documents/Downloads/Items01"
+        },
+        {
+            "id": "menclose-longdiv",
+            "group": "MathML",
+            "name": "menclose notation=\"longdiv\"",
+            "summary": "One menclose drawn as long division anywhere in the book turns the whole book into a fixed page: it opens, but the font size cannot be changed and the page reads like a PDF. Amazon lists menclose as supported and mlongdiv as unsupported.",
+            "workaround": "Give every menclose an explicit notation other than longdiv (box works), or replace it with mrow.",
+            "test_books": [
+                {
+                    "slug": "menclose-longdiv",
+                    "filename": "kindle-lab-menclose-longdiv.epub",
+                    "url": "https://dropkind.app/kindle-lab/books/menclose-longdiv"
+                },
+                {
+                    "slug": "menclose-control",
+                    "filename": "kindle-lab-menclose-control.epub",
+                    "url": "https://dropkind.app/kindle-lab/books/menclose-control"
+                }
+            ],
+            "results": {
+                "paperwhite-2024": {
+                    "verdict": "breaks",
+                    "label": "Locks the book",
+                    "observations": [
+                        {
+                            "firmware": "5.20.1.0.2",
+                            "date": "2026-11-07",
+                            "method": "Send to Kindle email, with the mrow control book, which reflowed"
+                        }
+                    ]
+                }
             }
-          ]
-        }
-      }
-    },
-    {
-      "id": "stalled-download",
-      "group": "Library and delivery",
-      "name": "Download stuck at 1%",
-      "summary": "A document can show its cover and still not open: tapping it says Queued, then Downloading 1%, then falls back to the cover. A restart does not clear it. It happens to files of every size and source.",
-      "workaround": "Long-press the cover, Remove download, tap the cover again: the second download works.",
-      "test_books": [],
-      "results": {
-        "paperwhite-2024": {
-          "verdict": "note",
-          "label": "Remove, retry",
-          "observations": [
-            {
-              "firmware": null,
-              "date": "2026-09-09",
-              "method": "Eight documents, each valid by epubcheck"
+        },
+        {
+            "id": "menclose-default",
+            "group": "MathML",
+            "name": "menclose with no notation",
+            "summary": "A bare menclose does the same as longdiv, because MathML makes long division the default. This is how most converters write it.",
+            "workaround": "Add notation=\"box\" (or another notation), or replace the menclose with mrow.",
+            "test_books": [
+                {
+                    "slug": "menclose-default",
+                    "filename": "kindle-lab-menclose-default.epub",
+                    "url": "https://dropkind.app/kindle-lab/books/menclose-default"
+                },
+                {
+                    "slug": "menclose-control",
+                    "filename": "kindle-lab-menclose-control.epub",
+                    "url": "https://dropkind.app/kindle-lab/books/menclose-control"
+                }
+            ],
+            "results": {
+                "paperwhite-2024": {
+                    "verdict": "breaks",
+                    "label": "Locks the book",
+                    "observations": [
+                        {
+                            "firmware": null,
+                            "date": "2026-09-09",
+                            "method": "Send to Kindle email; found by sending one book per element"
+                        },
+                        {
+                            "firmware": "5.20.1.0.2",
+                            "date": "2026-11-07",
+                            "method": "Send to Kindle email, with the mrow control book, which reflowed"
+                        }
+                    ]
+                }
             }
-          ]
+        },
+        {
+            "id": "menclose-box",
+            "group": "MathML",
+            "name": "menclose notation=\"box\"",
+            "summary": "The frame is drawn around the content and the book reflows: the font size changes as usual.",
+            "workaround": null,
+            "test_books": [
+                {
+                    "slug": "menclose-box",
+                    "filename": "kindle-lab-menclose-box.epub",
+                    "url": "https://dropkind.app/kindle-lab/books/menclose-box"
+                },
+                {
+                    "slug": "menclose-control",
+                    "filename": "kindle-lab-menclose-control.epub",
+                    "url": "https://dropkind.app/kindle-lab/books/menclose-control"
+                }
+            ],
+            "results": {
+                "paperwhite-2024": {
+                    "verdict": "works",
+                    "label": "Frame drawn",
+                    "observations": [
+                        {
+                            "firmware": "5.20.1.0.2",
+                            "date": "2026-11-07",
+                            "method": "Send to Kindle email"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "footnotes",
+            "group": "Layout",
+            "name": "Pop-up footnotes",
+            "summary": "A note reference opens the note in a panel at the bottom of the screen, with aside epub:type=\"footnote\" or with plain links. The panel shows only the first block of the note: a second paragraph, div or block span is lost.",
+            "workaround": "Write a note as one p, with br between its paragraphs. The panel then shows all of it.",
+            "test_books": [
+                {
+                    "slug": "footnotes",
+                    "filename": "kindle-lab-footnotes.epub",
+                    "url": "https://dropkind.app/kindle-lab/books/footnotes"
+                }
+            ],
+            "results": {
+                "paperwhite-2024": {
+                    "verdict": "partly",
+                    "label": "First block only",
+                    "observations": [
+                        {
+                            "firmware": null,
+                            "date": "2026-11-02",
+                            "method": "Send to Kindle email"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "full-page-image",
+            "group": "Layout",
+            "name": "Full-page images",
+            "summary": "The book's CSS never scales an image above its own size, so a 600 px cover fills only part of the screen. A page whose body is one SVG with a viewBox and preserveAspectRatio=\"xMidYMid meet\" around an image scales the picture to the screen and keeps its shape.",
+            "workaround": "Wrap a full-page picture in an SVG with a viewBox of the image's size.",
+            "test_books": [
+                {
+                    "slug": "full-page-cover",
+                    "filename": "kindle-lab-full-page-cover.epub",
+                    "url": "https://dropkind.app/kindle-lab/books/full-page-cover"
+                }
+            ],
+            "results": {
+                "paperwhite-2024": {
+                    "verdict": "partly",
+                    "label": "SVG only",
+                    "observations": [
+                        {
+                            "firmware": null,
+                            "date": "2026-11-03",
+                            "method": "Send to Kindle email"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "writing-systems",
+            "group": "Text",
+            "name": "Writing systems",
+            "summary": "Lines in Russian, Greek, Japanese (with furigana), Chinese, Korean, Arabic and Hebrew (right to left), Hindi, Thai and Vietnamese all show in their own scripts, with no empty boxes, without any font in the book.",
+            "workaround": null,
+            "test_books": [
+                {
+                    "slug": "showcase",
+                    "filename": "The Kindle Test Book.epub",
+                    "url": "https://dropkind.app/kindle-lab/books/showcase"
+                }
+            ],
+            "results": {
+                "paperwhite-2024": {
+                    "verdict": "works",
+                    "label": "All 10",
+                    "observations": [
+                        {
+                            "firmware": "5.20.1.0.2",
+                            "date": "2026-11-08",
+                            "method": "Send to Kindle email, The Kindle Test Book"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "code-blocks",
+            "group": "Text",
+            "name": "Code blocks",
+            "summary": "A pre block with no text-align of its own is justified like body text: the spaces inside each line stretch, so the indentation and alignment of code are lost. The same block with text-align: left keeps its spacing.",
+            "workaround": "Give pre text-align: left (and white-space: pre-wrap, so long lines wrap).",
+            "test_books": [
+                {
+                    "slug": "showcase",
+                    "filename": "The Kindle Test Book.epub",
+                    "url": "https://dropkind.app/kindle-lab/books/showcase"
+                }
+            ],
+            "results": {
+                "paperwhite-2024": {
+                    "verdict": "partly",
+                    "label": "Justified",
+                    "observations": [
+                        {
+                            "firmware": "5.20.1.0.2",
+                            "date": "2026-11-08",
+                            "method": "Send to Kindle email, The Kindle Test Book"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "emoji",
+            "group": "Text",
+            "name": "Emoji",
+            "summary": "The device has no emoji font. Faces, books, skin tones and flags show as empty boxes. Only the old text symbols survive, drawn in black: a heart (\u2764) and a star (\u2b50); the pencil (\u270f\ufe0f) shows as a thin line.",
+            "workaround": "Remove emoji before sending, or replace them with small images. DropKind removes them.",
+            "test_books": [
+                {
+                    "slug": "showcase",
+                    "filename": "The Kindle Test Book.epub",
+                    "url": "https://dropkind.app/kindle-lab/books/showcase"
+                }
+            ],
+            "results": {
+                "paperwhite-2024": {
+                    "verdict": "partly",
+                    "label": "Empty boxes",
+                    "observations": [
+                        {
+                            "firmware": "5.20.1.0.2",
+                            "date": "2026-11-08",
+                            "method": "Send to Kindle email, The Kindle Test Book"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "title",
+            "group": "Library and delivery",
+            "name": "Title in the library",
+            "summary": "The library and the book's header show the attachment's file name, not the title written inside the EPUB (dc:title). A non-ASCII file name works: a Cyrillic name shows as written.",
+            "workaround": "Name the file the way you want the title to read, spaces and all.",
+            "test_books": [
+                {
+                    "slug": "title-from-filename",
+                    "filename": "kindle-lab-title-from-filename.epub",
+                    "url": "https://dropkind.app/kindle-lab/books/title-from-filename"
+                }
+            ],
+            "results": {
+                "paperwhite-2024": {
+                    "verdict": "note",
+                    "label": "File name",
+                    "observations": [
+                        {
+                            "firmware": null,
+                            "date": "2026-11-03",
+                            "method": "Send to Kindle email (attachment)"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "kfx",
+            "group": "Library and delivery",
+            "name": "Format on the device",
+            "summary": "An EPUB sent through Send to Kindle is stored on the device as KFX, the Enhanced Typesetting format. That is the format Amazon documents MathML support for, so the rows above are about KFX, not the older AZW3.",
+            "workaround": null,
+            "test_books": [],
+            "results": {
+                "paperwhite-2024": {
+                    "verdict": "note",
+                    "label": "KFX",
+                    "observations": [
+                        {
+                            "firmware": null,
+                            "date": "2026-09-10",
+                            "method": "USB file listing of documents/Downloads/Items01"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "stalled-download",
+            "group": "Library and delivery",
+            "name": "Download stuck at 1%",
+            "summary": "A document can show its cover and still not open: tapping it says Queued, then Downloading 1%, then falls back to the cover. A restart does not clear it. It happens to files of every size and source.",
+            "workaround": "Long-press the cover, Remove download, tap the cover again: the second download works.",
+            "test_books": [],
+            "results": {
+                "paperwhite-2024": {
+                    "verdict": "note",
+                    "label": "Remove, retry",
+                    "observations": [
+                        {
+                            "firmware": null,
+                            "date": "2026-09-09",
+                            "method": "Eight documents, each valid by epubcheck"
+                        }
+                    ]
+                }
+            }
         }
-      }
-    }
-  ]
+    ]
 }

@@ -1,6 +1,11 @@
 # Kindle Lab test books
 
-Small EPUBs that each test one thing a Kindle does with a personal document sent through Send to Kindle.
+**Start here: [`books/The Kindle Test Book.epub`](books/The%20Kindle%20Test%20Book.epub).** One book to send to
+your Kindle and flip through: formulas, pop-up notes, tables, code, pictures in grey and colour, ten
+writing systems and emoji, each on a page of its own. Photos of every page on a Paperwhite 2024 are on
+https://dropkind.app/kindle-lab#start, so you can compare yours.
+
+The other books are small EPUBs that each test one thing a Kindle does with a personal document sent through Send to Kindle.
 Amazon converts every EPUB you send (to KFX), and the device shows the conversion, not your file, so a
 desktop reader cannot tell you what the Kindle will do. Only the device can.
 
@@ -11,6 +16,7 @@ https://dropkind.app/kindle-lab.json, which is always current).
 
 | Book | What it checks |
 |---|---|
+| `books/The Kindle Test Book.epub` | Everything at a glance, one page per topic. On a Paperwhite 2024, firmware 5.20.1: formulas, tables, pictures and all ten scripts render; emoji show as empty boxes; a code block without `text-align: left` is justified. |
 | `books/kindle-lab-menclose-longdiv.epub` | Whether one MathML `menclose notation="longdiv"` turns the whole book into a fixed page (no font size). On a Paperwhite 2024, firmware 5.20.1, it does. |
 | `books/kindle-lab-menclose-default.epub` | The same with a bare `menclose`: MathML makes long division the default, so it locks the book too. |
 | `books/kindle-lab-menclose-box.epub` | `menclose notation="box"`: the frame is drawn and the book reflows. |

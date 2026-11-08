@@ -6,7 +6,7 @@ body:
     id: book
     attributes:
       label: Test book
-      options: [menclose-longdiv, menclose-default, menclose-box, menclose-control, mathml-elements, footnotes, full-page-cover, title-from-filename]
+      options: [showcase, menclose-longdiv, menclose-default, menclose-box, menclose-control, mathml-elements, footnotes, full-page-cover, title-from-filename]
     validations: { required: true }
   - type: input
     id: device
